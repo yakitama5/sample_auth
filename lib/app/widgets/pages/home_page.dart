@@ -13,7 +13,8 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
             // サインアウトイベントを呼び出す
-            onPressed: () => context.read<SignInBloc>().add(SignOut()),
+            onPressed: () =>
+                BlocProvider.of<SignInBloc>(context).add(SignOut()),
             child: const Text("サインアウト")),
       ),
     );

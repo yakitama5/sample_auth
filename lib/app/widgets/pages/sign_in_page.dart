@@ -22,8 +22,8 @@ class SignInPage extends StatelessWidget {
         body: Center(
           child: ElevatedButton(
               // 認証イベントを呼び出す
-              onPressed: () =>
-                  context.read<SignInBloc>().add(SignInWithAnonymous()),
+              onPressed: () => BlocProvider.of<SignInBloc>(context)
+                  .add(SignInWithAnonymous()),
               child: const Text("匿名サインイン")),
         ),
       ),

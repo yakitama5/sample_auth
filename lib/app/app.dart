@@ -17,7 +17,7 @@ class App extends StatelessWidget {
       ],
       child: Builder(
         builder: (context) {
-          final authBloc = context.read<AuthBloc>();
+          final authBloc = BlocProvider.of<AuthBloc>(context);
           final appRouter = AppRouter(authBloc);
 
           return MaterialApp.router(
