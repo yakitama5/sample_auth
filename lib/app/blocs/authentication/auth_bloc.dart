@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 import 'package:sample_auth/app/blocs/authentication/auth_state.dart';
 
 import 'auth_event.dart';
@@ -9,7 +10,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final FirebaseAuth _auth;
 
   AuthBloc({FirebaseAuth? auth})
-      : _auth = auth ?? FirebaseAuth.instance,
+      : _auth = auth ?? GetIt.I<FirebaseAuth>(),
         // 初期状態は「初期化されていない状態」
         super(UnInitialized()) {
     on<AppStarted>(_appStarted);
